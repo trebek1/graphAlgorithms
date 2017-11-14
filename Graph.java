@@ -89,9 +89,13 @@ class Graph {
     for (int v : vertexTwo){
       System.out.println(v);
     }
-
+    System.out.println("DFS");
     System.out.println("*********");
     DepthFirstSearch dfs = new DepthFirstSearch(g,0); 
+    System.out.println("*********");
+
+    System.out.println("BFS");
+    BreadthFirstSearch bfs = new BreadthFirstSearch(g,0); 
     System.out.println("*********");
   }
 } 
