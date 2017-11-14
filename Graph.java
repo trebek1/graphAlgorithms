@@ -1,29 +1,45 @@
 import java.util.*;
 
+// basic graph class 
+
 class Graph {
   public ArrayList<LinkedList<Integer>> adj; 
-  public int size; 
+  private int vertices;
+  private int edges; 
   
   public Graph(int v){
-    System.out.println("created a graph " + v);
-    size = v; 
+    // set number of vertices of future graph 
+    vertices = v; 
+
+    // Create Adjacency list to hold vertices 
     adj = new ArrayList<LinkedList<Integer>>(); 
-    for(int i = 0; i<v; i++){
+
+    //Add linked lists for each node (assuming vertices are 1 -> n)
+    addLinkedLists();
+  }
+
+  private void addLinkedLists(){
+    for(int i = 0; i<V(); i++){
       adj.add(new LinkedList<Integer>());
     }
+  }
 
+  public int V(){
+    return this.vertices; 
+  }
 
-    System.out.println("Number of verticies in graph " + this.adj.size());
+  public int E(){
+    return this.edges; 
   }
 
   public void addEdge(int start, int end){
     LinkedList<Integer> connections = this.adj.get(start);
     if (!connections.contains(end)) {
       connections.add(end);
+      this.edges++;
     } 
   }
   public static void main(String[] args) {
-    System.out.println("hello world");
     Graph g = new Graph(6);
 
     g.addEdge(0,1);
@@ -39,7 +55,8 @@ class Graph {
     g.addEdge(4,1); 
     g.addEdge(5,2); 
 
-    for(int i = 0; i< g.size; i++){
+    // print the edges 
+    for(int i = 0; i< g.vertices; i++){
       int vertex = i;
       LinkedList<Integer> edges = g.adj.get(vertex); 
       int vSize = edges.size();
@@ -48,5 +65,15 @@ class Graph {
         System.out.println(edges.get(k)); 
       }
     }
+
+    System.out.println("********"); 
+    System.out.println("Edges: " + g.E()); 
+    System.out.println("Vertices: " + g.V());
+    System.out.println("********");
   }
 } 
+
+
+
+
+
