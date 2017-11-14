@@ -39,6 +39,11 @@ class Graph {
       this.edges++;
     } 
   }
+
+  Iterable<Integer> adj(int v){
+    return adj.get(v);
+  }
+
   public static void main(String[] args) {
     Graph g = new Graph(6);
 
@@ -70,6 +75,12 @@ class Graph {
     System.out.println("Edges: " + g.E()); 
     System.out.println("Vertices: " + g.V());
     System.out.println("********");
+
+    Iterable<Integer> vertexTwo = g.adj(2); 
+
+    for (int v : vertexTwo){
+      System.out.println(v);
+    }
   }
 } 
 
