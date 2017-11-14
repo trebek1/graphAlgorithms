@@ -44,6 +44,14 @@ class Graph {
     return adj.get(v);
   }
 
+  private void dfs(){
+
+  }
+
+  private void bfs(){
+
+  }
+
   public static void main(String[] args) {
     Graph g = new Graph(6);
 
@@ -81,10 +89,10 @@ class Graph {
     for (int v : vertexTwo){
       System.out.println(v);
     }
+
+    System.out.println("*********");
+    DepthFirstSearch dfs = new DepthFirstSearch(g,0); 
+    System.out.println("*********");
   }
 } 
-
-
-
-
 
